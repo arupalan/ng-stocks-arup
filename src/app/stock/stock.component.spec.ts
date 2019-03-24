@@ -16,7 +16,13 @@ describe('StockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CoreModule, SharedModule, HttpClientTestingModule, RouterModule, RouterTestingModule],
+      imports: [
+        CoreModule,
+        SharedModule,
+        HttpClientTestingModule,
+        RouterModule,
+        RouterTestingModule
+      ],
       declarations: [StockComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
       providers: [StockService]

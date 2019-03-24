@@ -6,7 +6,7 @@ import { Shell } from '@app/shell/shell.service';
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: 'candles/:symbol/:companyName', component: ChartComponent}
+    { path: 'candles/:symbol/:companyName', component: ChartComponent }
   ])
 ];
 

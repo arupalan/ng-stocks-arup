@@ -14,6 +14,8 @@ namespace TestApi.api
     {
         private readonly IHttpClientFactory _clientFactory;
         private readonly ILogger _logger;
+        const string BaseUri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
+        const string OutputSizeAndToken = "&outputsize=full&apikey=2DVGFZ4QO7LI2DEV";
 
         #region ctor
         public AlphaVantageApi(IHttpClientFactory clientFactory, ILogger<AlphaVantageApi> logger)
@@ -26,7 +28,7 @@ namespace TestApi.api
         public async Task<IList<Candle>> GetCandles(string symbol)
         {
             var request = new HttpRequestMessage(HttpMethod.Get,
-                "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + symbol + "&outputsize=full&apikey=2DVGFZ4QO7LI2DEV");
+                BaseUri + symbol + OutputSizeAndToken);
             request.Headers.Add("Accept", "application/json");
             HttpClient client = _clientFactory.CreateClient();
             try
@@ -39,8 +41,7 @@ namespace TestApi.api
                     IList<Candle> lstCandles = new List<Candle>();
                     foreach (KeyValuePair<string, JToken> sub_obj in (JObject)my_obj["Time Series (Daily)"])
                     {
-                        //Console.WriteLine(sub_obj.Key + "\topen" + sub_obj.Value["1. open"] + "\thigh" + sub_obj.Value["2. high"] + "\tlow" + sub_obj.Value["3. low"] + "\tclose" + sub_obj.Value["4. close"] + "\tvolume" + sub_obj.Value["5. volume"]);
-                        lstCandles.Add(new Candle()
+                        lstCandles.Add(new Candle
                         {
                             date = DateTime.Parse(sub_obj.Key),
                             open = (decimal)sub_obj.Value["1. open"],

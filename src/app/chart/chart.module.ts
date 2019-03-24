@@ -10,7 +10,7 @@ import { ChartService } from './chart.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MacdChartComponent } from '@app/macd-chart/macd-chart.component';
 
 // Add an icon to the library for convenient access in other components

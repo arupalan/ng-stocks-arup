@@ -23,7 +23,7 @@ import { Observable } from 'rxjs';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss']
 })
-export class ChartComponent implements OnInit, OnDestroy  {
+export class ChartComponent implements OnInit, OnDestroy {
   isLoading: boolean;
   @Input()
   data: CandleModel[];
@@ -34,13 +34,16 @@ export class ChartComponent implements OnInit, OnDestroy  {
   private symbolSubscription: any;
 
   constructor(
-    private chartService: ChartService , private router: Router, private route: ActivatedRoute) {}
+    private chartService: ChartService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.symbolSubscription = this.route.params.subscribe( params => {
-       this.symbol = params['symbol'];
-       this.title = params['companyName'];
-       console.log('ChartComponent symbol', this.symbol);
+    this.symbolSubscription = this.route.params.subscribe(params => {
+      this.symbol = params['symbol'];
+      this.title = params['companyName'];
+      console.log('ChartComponent symbol', this.symbol);
     });
 
     this.isLoading = true;
@@ -53,11 +56,10 @@ export class ChartComponent implements OnInit, OnDestroy  {
       )
       .subscribe((candles: CandleModel[]) => {
         this.data = candles;
-    });
+      });
   }
 
   ngOnDestroy() {
     this.symbolSubscription.unsubscribe();
   }
-
 }

@@ -9,7 +9,7 @@ import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
 import { StockModule } from './stock/stock.module';
-import {ChartModule} from './chart/chart.module';
+import { ChartModule } from './chart/chart.module';
 import { ShellModule } from './shell/shell.module';
 import { AboutModule } from './about/about.module';
 import { LoginModule } from './login/login.module';

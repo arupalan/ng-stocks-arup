@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import {Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { StockService, Stock } from './stock.service';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,11 @@ export class StockComponent implements OnInit {
   @Input() gutterSize: string;
   faChartLine = faChartLine;
 
-  constructor(private stockService: StockService , private router: Router,  private route: ActivatedRoute) {}
+  constructor(
+    private stockService: StockService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.isLoading = true;

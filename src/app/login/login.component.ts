@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit {
         credentials => {
           log.debug(`${credentials.username} successfully logged in`);
           this.route.queryParams.subscribe(params =>
-            this.router.navigate([params.redirect || '/stock'], { replaceUrl: true })
+            this.router.navigate([params.redirect || '/stock'], {
+              replaceUrl: true
+            })
           );
         },
         error => {
