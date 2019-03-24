@@ -5,9 +5,9 @@ Angular Front End featuring
 ##### b) Over 60 plus Tests
 ##### c) Cypress End to End Test
 
-## 1. yarn install
+### 1. yarn install
 
-## 1. Working of the Application
+### 2. Working of the Application
 #### a) `yarn start` will bootstrap both .Net Core Server and the Angular FrontEnd
 #### b) login using any userid/passwd 
 #### c) This will show the dashboard list of stocks fetched from the .Net Core `/stocks` endpoint
@@ -15,11 +15,11 @@ Angular Front End featuring
 #### c) The datapoint are plotted in Angular Native using D3 and Techan (data formatting) 
 ![Frontpage](https://github.com/arupalan/ng-stocks-arup/blob/master/static/usage.gif)
 
-## 2. yarn test
+### 2. yarn test
 
 ![Testing](https://github.com/arupalan/ng-stocks-arup/blob/master/static/coverage.gif)
 
-## 3. Cypress e2e `yarn e2e` 
+### 3. Cypress e2e `yarn e2e` 
 
 ![Boot](https://github.com/arupalan/ng-stocks-arup/blob/master/static/e2e.gif)
 backend integrated using webpack and should be running at port 5000 as per current configuration. Or alternately modify proxy.conf.js
