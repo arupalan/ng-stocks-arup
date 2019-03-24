@@ -1,0 +1,132 @@
+.logo {
+  width: 100px;
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+
+.stock-filter {
+  display: flex;
+  padding: 30px 0;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 300;
+    flex: 1;
+  }
+
+  & .sort {
+    display: flex;
+    align-self: flex-end;
+
+    & .collection-sort {
+      display: flex;
+      flex-direction: column;
+
+      &:first-child {
+        padding-right: 20px;
+      }
+
+      label {
+        color: #666;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 2em;
+        text-transform: uppercase;
+      }
+
+      select:not(:-internal-list-box) {
+        overflow: visible !important;
+      }
+
+      select,
+      input[type="color"i][list] {
+        background-color: rgb(248, 248, 248);
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(166, 166, 166);
+        border-image: initial;
+      }
+
+      select {
+        -webkit-appearance: menulist;
+        box-sizing: border-box;
+        align-items: center;
+        white-space: pre;
+        -webkit-rtl-ordering: logical;
+        color: black;
+        background-color: white;
+        cursor: default;
+        border-width: 1px;
+        border-style: solid;
+        border-color: initial;
+        border-image: initial;
+      }
+
+      select {
+        border-radius: 5px;
+
+        & option {
+          font-weight: normal;
+          display: block;
+          white-space: pre;
+          min-height: 1.2em;
+          padding: 0px 2px 1px;
+        }
+      }
+    }
+  }
+}
+
+.stocksGridHeader {
+  display: grid;
+  grid-template-columns:
+    minmax(50px, 100px) minmax(50px, 60px) minmax(350px, 1.5fr)
+    1fr 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  border-color: lightgrey;
+  font-family: Arial;
+  font-size: 0.8em;
+  margin-bottom: 1%;
+
+  span:nth-of-type(8n - 5) {
+    text-align: left;
+  }
+}
+
+.stocksGrid {
+  display: grid;
+  grid-template-columns:
+    minmax(50px, 100px) minmax(50px, 60px) minmax(350px, 1.5fr)
+    1fr 1fr 1fr 1fr 1fr 1fr;
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  text-align: center;
+  border-color: lightgrey;
+  font-family: Roboto, sans-serif;
+
+  & > span {
+    padding: 8px 4px;
+    border-left: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  span:nth-of-type(8n - 7) {
+    color: #004176;
+  }
+
+  span:nth-of-type(8n - 5) {
+    text-align: left;
+  }
+}
+
+.footer {
+  margin-top: 3%;
+
+  & span {
+    margin-left: 3%;
+  }
+}

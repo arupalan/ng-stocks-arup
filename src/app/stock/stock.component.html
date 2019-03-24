@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <span translate>Dow Jones U.S. Internet Index</span>
+    </h1>
+    <app-loader [isLoading]="isLoading"></app-loader>
+  </div>
+  <div [hidden]="isLoading">
+    <nav class="stock-filter">
+    <h1>
+      <span translate><strong>All Stocks in this Industry</strong> (Listed Alphabetically)</span>
+    </h1>
+
+      <div class="sort">
+        <div class="collection-sort">
+          <label>Filter by:</label>
+          <select>
+            <option value="/">All Symbols</option>
+            <option value="/">VNET</option>
+            <option value="/">AGTK</option>
+            <option value="/">AKAM</option>
+            <option value="/">BIDU</option>
+          </select>
+        </div>
+
+        <div class="collection-sort">
+          <label>Sort by:</label>
+          <select>
+            <option value="/">Volume</option>
+            <option value="/">Volume, low to high</option>
+            <option value="/">Volume, high to low</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+		<div class="stocksGridHeader">
+      <span>Symbol</span>
+			<span>Link Chart</span>
+      <span>Company Name</span>
+      <span>Last Change</span>
+      <span>Change</span>
+      <span>%</span>
+      <span>High</span>
+      <span>Low</span>
+      <span>Volume</span>
+    </div>
+    <section class="stocksGrid" *ngFor="let stock of stocks">
+      <span (click)="onStockDetails()">{{ stock.symbol }}</span>
+      <span><a [routerLink]="['/candles', stock.symbol , stock.companyName ]" routerLinkActive="active"> <fa-icon [icon]="faChartLine"></fa-icon></a>
+      </span> 
+      <span>{{ stock.companyName }}</span>
+      <span>{{ stock.lastChange }}</span>
+      <span [style.color]="stock.change > '0' ? 'green' : 'red'">{{ stock.change }}</span>
+      <span [style.color]="stock.changePercentage > '0' ? 'green' : 'red'">{{ stock.changePercentage }}</span>
+      <span>{{ stock.high }}</span>
+      <span>{{ stock.low }}</span>
+      <span>{{ stock.volume }}</span>
+    </section>
+    <div class="jumbotron text-center footer">
+      <h1>
+        <img
+          class="logo"
+          src="assets/apple-touch-icon.png"
+          alt="angular logo"
+        />
+        <span translate>Please feedback</span>
+      </h1>
+    </div>
+  </div>
+</div>

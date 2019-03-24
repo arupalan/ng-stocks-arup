@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{5148A5A1-6CEF-4218-840F-E5A7A58CE968}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/CandleController.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="17" Column="9" />
+      <File FileName="Controllers/CandleController.cs" Line="30" Column="9" />
+      <File FileName="Helper/DataStore.cs" Line="11" Column="43" />
+      <File FileName="api/AlphaVantageApi.cs" Line="20" Column="9" />
+      <File FileName="Controllers/StockController.cs" Line="14" Column="9" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TestApi" expanded="True">
+            <Node name="TestApi" expanded="True">
+              <Node name="api" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="CandleController.cs" selected="True" />
+              </Node>
+              <Node name="Dto" expanded="True" />
+              <Node name="Helper" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="TestApi" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.TestApi PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
