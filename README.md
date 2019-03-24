@@ -17,11 +17,11 @@ Angular Front End featuring
 #### c) The datapoint are plotted in Angular Native using D3 and Techan (data formatting) 
 ![Frontpage](https://github.com/arupalan/ng-stocks-arup/blob/master/static/usage.gif)
 
-### 2. yarn test
+### 3. yarn test
 
 ![Testing](https://github.com/arupalan/ng-stocks-arup/blob/master/static/coverage.gif)
 
-### 3. Cypress e2e `yarn e2e` 
+### 4. Cypress e2e `yarn e2e` 
 
 ![Boot](https://github.com/arupalan/ng-stocks-arup/blob/master/static/e2e.gif)
 
