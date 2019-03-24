@@ -1,9 +1,9 @@
 # Project Summary
 .Net Core WebAPI fetching Historical Financial Data from AlphaVantage Data Server using my personal token (please do not overuse else I'll become rate limited)
 Angular Front End featuring
-### a) D3 MACD Charting of the Financial Data Candles for the stock which the use clicks for charting on the main page
-### b) Over 60 plus Tests
-### c) Cypress End to End Test
+##### a) D3 MACD Charting of the Financial Data Candles for the stock which the use clicks for charting on the main page
+##### b) Over 60 plus Tests
+##### c) Cypress End to End Test
 
 ## 1. yarn install
 
