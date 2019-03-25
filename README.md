@@ -1,6 +1,6 @@
 # Project Summary
 
-###.Net Core WebAPI fetching Historical Financial Data from AlphaVantage Data Server using my personal token `(please do not overuse else I'll become rate limited)`
+### .Net Core WebAPI fetching Historical Financial Data from AlphaVantage Data Server using my personal token `(please do not overuse else I'll become rate limited)`
 
 **Angular Front End feats**
 
