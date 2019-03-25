@@ -7,6 +7,7 @@ using TestApi.Dto;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Concurrent;
 
 namespace TestApi.api
 {
@@ -14,18 +15,23 @@ namespace TestApi.api
     {
         private readonly IHttpClientFactory _clientFactory;
         private readonly ILogger _logger;
-        const string BaseUri = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
-        const string OutputSizeAndToken = "&outputsize=full&apikey=2DVGFZ4QO7LI2DEV";
+
+        //cache results wrapped in ConcurrentDictionary and invoke async method only when cache has no appropriate result.
+        private ConcurrentDictionary<string, IList<Candle>> _contentTasks;
+
+        private static string OutputSizeAndToken => "&outputsize=full&apikey=2DVGFZ4QO7LI2DEV";
+        private static string BaseUri => "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
 
         #region ctor
         public AlphaVantageApi(IHttpClientFactory clientFactory, ILogger<AlphaVantageApi> logger)
         {
             _clientFactory = clientFactory;
             _logger = logger;
+            _contentTasks = new ConcurrentDictionary<string, IList<Candle>>();
         }
         #endregion
 
-        public async Task<IList<Candle>> GetCandles(string symbol)
+        private async Task<IList<Candle>> GetCandlesAsync(string symbol)
         {
             var request = new HttpRequestMessage(HttpMethod.Get,
                 BaseUri + symbol + OutputSizeAndToken);
@@ -64,5 +70,24 @@ namespace TestApi.api
                 throw;
             }
         }
+
+        public async Task<IList<Candle>> GetCandles(string symbol)
+        {
+            if (!_contentTasks.TryGetValue(symbol, out IList<Candle> content))
+            {
+                content = await GetCandlesAsync(symbol)
+                                .ContinueWith(task =>
+                                {
+                                    IList<Candle> result = task.Result;
+                                    _contentTasks.TryAdd(symbol, result);
+                                    return result;
+                                },
+                                    TaskContinuationOptions.OnlyOnRanToCompletion |
+                                    TaskContinuationOptions.ExecuteSynchronously);
+            }
+            return content;
+        }
+
+
     }
 }

@@ -20,8 +20,8 @@ namespace TestApi.Controllers
         {
             try
             {
-                List<Candle> candles = await _alphaVantageApiService.GetCandles(symbol) as List<Candle>;
-                return candles;
+                var candlestasks = await _alphaVantageApiService.GetCandles(symbol);
+                return candlestasks as List<Candle>;
             }
             catch (Exception)
             {
